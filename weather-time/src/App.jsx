@@ -1,32 +1,33 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import weatherIcon from './assets/weather-icon.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [temperature, setTemperature] = useState(0)
+  const [location, setLocation] = useState('')
+
+  const fetchWeatherData = () => {
+    // Simulating API call to fetch weather data
+    setTimeout(() => {
+      setTemperature(25)
+      setLocation('New York')
+    }, 2000)
+  }
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <img src={weatherIcon} className="logo" alt="Weather icon" />
       </div>
-      <h1>Vite + React</h1>
+      <h1>Weather Time</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+        <button onClick={fetchWeatherData}>Get Weather</button>
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Temperature in {location}: {temperature}°C
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click the button to fetch weather data
       </p>
     </>
   )
