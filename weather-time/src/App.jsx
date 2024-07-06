@@ -43,12 +43,12 @@ function App() {
   };
 
   return (
-    <div className='flex flex-col items-center'>
-      <div className={`w-full h-screen ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
-        <div className='flex text-center p-4'>
+    <div className={`min-h-screen ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'}`}>
+      <div className='container mx-auto p-4'>
+        <div className='mb-4'>
           <input 
             type="text" 
-            className={`py-3 px-6 w-[700px] text-lg rounded-3xl border-gray-200 placeholder:text-gray-400 focus:outline-none shadow-md ${
+            className={`py-3 px-6 w-full text-lg rounded-3xl border-gray-200 placeholder:text-gray-400 focus:outline-none shadow-md ${
               theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
             }`}
             placeholder='Location'
@@ -57,10 +57,14 @@ function App() {
             onKeyDown={searchLocation}
           />
         </div>
-        <Weather data={data} theme={theme} />
-        <div className="flex justify-center items-center h-[calc(100vh-100px)]">
-        {coordinates && <WeatherMap coordinates={coordinates} apiKey={API_KEY} />}
-      </div>
+        <div className='flex flex-col md:flex-row gap-4'>
+          <div className='w-full md:w-1/3'>
+            <Weather data={data} theme={theme} />
+          </div>
+          <div className='w-full md:w-2/3 h-[calc(100vh-150px)]'>
+            {coordinates && <WeatherMap coordinates={coordinates} apiKey={API_KEY} />}
+          </div>
+        </div>
       </div>
     </div>
   );
