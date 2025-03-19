@@ -23,7 +23,7 @@ const WeatherMap = ({ coordinates, apiKey }) => {
     };
   }, [coordinates, apiKey]);
 
-  return <div ref={mapRef} style={{ height: '100%', width: '100%' }}></div>;
+  return <div ref={mapRef} style={{ height: '100%', width: '100%', borderRadius: '15px' }}></div>;
 };
 
 export default WeatherMap;
