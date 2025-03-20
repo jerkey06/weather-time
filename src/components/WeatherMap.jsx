@@ -128,7 +128,7 @@ const WeatherMap = ({ coordinates, apiKey, theme }) => {
   };
 
   return (
-    <div className="relative h-full w-full" style={{ minHeight: '300px', borderRadius: '15px'}}>
+    <div className="relative h-full w-full" style={{ minHeight: '300px'}}>
       <div ref={mapRef} className="h-full w-full z-10"></div>
       
       <div className={`absolute bottom-8 left-8 z-20 flex flex-col gap-2 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
